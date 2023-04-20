@@ -1,0 +1,22 @@
+Fonctionnalitées implémentées  :
+
+Lecture du contenu d'un fichier au format ELF 
+
+ - Affichage de l’en-tête
+ - Affichage de la table des sections
+ - Affichage du contenu d’une section
+ - Affichage de la table des symboles
+ - Affichage des tables de réimplantation
+
+Fusion de deux fichiers ELF 
+
+ - Fusion et renumérotation des sections
+ - Fusion, renumérotation et correction des symboles
+
+
+
+
+Fonctionnalitées manquantes :
+
+- Fusion et correction des tables de réimplantations
+- Production d’un fichier résultat au format ELF

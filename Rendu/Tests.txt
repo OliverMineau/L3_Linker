@@ -1,0 +1,57 @@
+Liste et description des tests : 
+
+Ces tests permettent de vérifier que le programme fonctionne comme attendu.
+- Test file1 et file2 : Compilation correcte de deux fichiers c et bon format ELF.
+- Test 1 et 2 : Compilation correcte de deux fichiers c et bon format ELF. 
+- Test 3 : Fichier 64 bits little endian  
+- Test 4 et 5 : Compilation correcte de deux fichiers c et bon format ELF. 
+- Test 6 : Erreur "aléatoire" (écriture dans le fichier compilé)
+- Test 7 : Erreur Magic number (ELF -> FLE)
+- Test 8 : Erreur : fichier en 32 bits little endian
+- ResultTest1-2 : fichier résultat de la fusion de test1 et test2 a l'aide de arm-none-eabi-ld
+- ResultFile1-2 : fichier résultat de la fusion de file1 et file2 a l'aide de arm-none-eabi-ld
+
+
+On rajoute dans le nom des fichiers "BON" ou "MAUV" pour savoir si ce fichier est correcte et donc si le résultat attendu est une erreur ou 
+une opération de lecture. 
+
+Description : 
+
+Nous utilisons un test automatisé pour la lecture de fichier : 
+    Nous vérifions les 5 étapes de la phase 1 en même temps, pour cela nous comparons les sorties de notre programme aux sorties 
+    des commandes associées (voir section ATTENTION). 
+    Pour chaque étape si les deux sorties sont les mêmes le test est réussi et l'étape est passée. 
+    Affichage type : <Test_header : test5.o REUSSI.>, en vert. 
+
+    Dans le cas où des différences dans les sorties sont trouvées : 
+    une ligne en ROUGE est affichée, c'est la sortie de notre programme.
+    En dessous de chaque ligne rouge,  La ligne attendu sera affiché en VERT. 
+    Puis il est affiché le nombre d'erreurs trouvées dans cette partie.
+    Affichage type : <Test_symb_tab : 2 erreurs trouvées dans test1.o, ECHEC>, en rouge.
+
+    De plus à la fin des lignes vertes et rouges il y a une flèche suivie d'un nombre(->10) indiquant le numéro de la ligne 
+    du résultat attendu et du résultat obtenu. Ceci permet de voir si il y a une ligne qui à été oubliée dans notre version. 
+
+    Enfin il y a une option de debug qui va afficher toutes les lignes qui sont présentes dans les deux résultats en plus de
+    l'affichage précédent. 
+
+
+
+Utilisation du programmme de test  :
+
+
+./test.sh <dossier>
+    On va tester tous les fichiers.o du dossier.
+./test.sh <fichier.o>
+    On va tester le fichier.o.
+
+./test.sh <-d> <fichier.o>
+    On va tester le fichier.o avec l'option de debug.
+
+./mainTest.sh <dossier>
+    Affichage simplifié des tests (il est seulement indiqué si le test est passé ou non).
+
+
+ATTENTION : Pour vérifier que notre programme fonctionne bien nous comparons nos sorties aux sorties de la commande 
+readelf. Les sorties de notre programme sont en anglais ainsi, si l'on souhaite les comparer avec les sorties des commandes elles 
+doivent êtres également en anglais et donc linux doit être configuré en anglais. 

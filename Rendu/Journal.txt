@@ -1,0 +1,60 @@
+Mercredi 14 décembre
+    Présentation du projet
+    Lecture du sujet en groupe pour bien comprendre les objectifs et les exigences du projet
+    Discussion sur l'organisation du travail
+    Début de travail sur l'étape 1 du projet (affichage du header). 
+    Nous avons rencontré des difficultés pour compiler les fichiers en 32 bits big endian, donc nous avons décidé de commencer l'étape 1 sur des fichiers en 64 bits little endian
+
+Jeudi 15 décembre
+    Nous avons fini l'étape 1 du projet et commencé l'étape 2 (affichage du header des sections)
+    Nous avons continué à travailler sur des fichiers en 64 bits little endian
+    Création d’un oracle pour tester le header
+
+Vendredi 16 décembre
+    Nous avons avancé l'étape 2 et nous pouvons lire les sections des fichiers 64 bits little endian
+    L’étape 1 fonctionne maintenant avec des fichiers 32 bits big endian, nous avons résolu les problèmes de conversion de endianness
+    Nous avons créé un buffer (une structure) pour stocker temporairement les données de header que nous lisons, cela est beaucoup plus pratique que de stocker les données dans un fichier que nous devons lire par la suite
+    Debut de l'étape 3, afficahge des sections par un argument donné
+    
+Lundi 19 décembre
+    Fin de l'étape 3
+    Correction de bug étape 3
+    Mise à jour de l'oracle
+    Debut de l'étape 4, affichage de la table des symboles
+
+Mardi 20 décembre
+    Fin étape 4 et début étape 5, affichage des tables de r ́eimplantation
+    Mise à jour de l'oracle
+
+Mardi 3 janvier
+    Point sur la fin de la phase 1 et correction de éventuel bugs.
+    Début de l'étape 6 phase 2, fusion et renumérotation des sections.
+    
+Mercredi 4 janvier
+    Audit de code : nous avons reçu des suggestions pour améliorer la clarté de notre code, que nous avons réalisées l'après-midi :
+    Fonctions indépendantes pour l’affichage ✓
+    Fonctions indépendantes pour le bswap ✓
+    Maintenir des structures de données utilisables ✓
+    Transformation des informations de sections et de la table des symboles dans notre buffer en big endian, ce qui permet de ne pas avoir à le faire à chaque fois que l’on y accède et rend le code plus propre
+    Ajouts de tests pour les nouvelles étapes
+    Ajout d’une structure définissant un fichier ELF : cela permet de réunir toutes les informations des fichier à un endroit (précédemment nous avions plusieurs structures différentes pour différentes parties du fichier (header, section, table des symboles…))
+
+Jeudi 5 janvier
+    Séparation des parties de lecture et de fusion sur différents fichiers
+    Finalisation de l’étape 6 mais certains points sont a revoir en fonctions des prochaines étapes.
+
+Vendredi 6 janvier
+    Début de l’étape 7, fusion renumérotation et correction des symboles
+    Écriture du readme avec le mode d’emploi du make, du programme et du programme de test, et la description de la structure du programme.
+
+Lundi 9 janvier 
+    Modification de l’étape 6 pour l'ajout des sections ARM_ATTRIBUTES 
+
+Mardi 10 janvier 
+	Correction du programme de test : nous avons remarqués que dans certain cas si le programme renvoie des erreurs de segmentation, 
+    le test pouvait être considéré comme passé. 
+    Modification du code pour mettre en place l'étape 8
+    Écriture du compte rendu.
+
+Mercredi 11 janvier
+    préparation a la soutenance et mise au propre du rendu.

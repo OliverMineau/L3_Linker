@@ -1,0 +1,36 @@
+# Compilation # 
+
+CFLAGS='' ./configure
+make
+
+# Utilisation du programme 
+
+Affichage du mode d'emploi : 
+./main <-h> 
+
+Cas de lecture d'un seul fichier : 
+./main <-l> <option> <nom_fichier>
+    Options :
+        "-a" : Affiche toutes les parties ci-dessous
+        "-h" : Affiche l’en-tete d’un fichier ELF (header)
+        "-S" : Affiche la table des sectionsd’un fichier ELF (section header)
+        "-s" : Affiche la table des symboles d’un fichier ELF (symbol table)
+        "-r" : Afficher les tables de reimplantation d’un fichier ELF pour machine ARM (relocation section)
+        "-x" : Affiche le contenu de l’une des sections d’un fichier ELF (section dump)
+        NOTE : pour cette option il est necessaire d'ajouter un 4eme argument, le numero de la section que l'on souhaite afficher 
+        profil : ./main <-l> <-x> <nom_fichier> <numero de la section a afficher> 
+        NOTE 2 : L'option "-a" affiche toutes les sections du fichier.
+
+Cas de fusion de fichiers ELF : 
+./main <-f> <nom_fichier_1> <nom_fichier_2> <nom_fichier_resultat>
+
+
+# Utilisation du programme de test
+
+./test.sh <dossier>
+    On va tester tous les fichiers.o du dossier.
+./test.sh <fichier.o>
+    On va tester le fichier.o.
+
+./test.sh <-d> <fichier.o>
+    On va tester le fichier.o avec l'option de debug.

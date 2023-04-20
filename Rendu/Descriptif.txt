@@ -1,0 +1,32 @@
+# Descriptif de la strucutre du code développé. 
+
+               /   écriture du fichier dans un buffer en mémoire et écriture des infos du buffer dans une structure elf  
+      lecture -
+     /         \   affichage des infos sélectionnées  
+Main 
+     \         /   écriture des fichiers dans des buffer en mémoire et écriture info des buffer dans des structures elf  (appel à lecture)
+      fusion   --  fusion des différentes sections, tables des symboles et nom de sections
+               \   reste a venir ;;; la suite dans le prochain épisode 
+    
+
+    ### Lecture.c
+    Récupère les informations du format ELF d'un fichier, 
+    les stocke dans une structure et les affiche selon les options données en argument.
+        - Fonction Swap little endian à big endian 
+        - Fonction Auxiliaire a la lecture, qui permettent de vérifier que le fichier soit bien en big endian et qui permet 
+        de récupérer les flags de chaque section
+        - Fonction Lecture en mémoire vers struct Elf : 
+        - Fonction Affichage struct Elf : 
+        - Fonction Initialisation Struct Elf :
+        - Affichage Global qui appelle selon les arguments donnés les autres fonctions d'affichages (header, section) 
+
+    ### Fusion.c 
+        - Fonction de concaténation de sections : Concatène les sections lorsque c'est nécéssaire sinon, les copie dans le fichier résultat. 
+        - add_symbol : 
+        - fusion_symbol_tables :
+        - fusion :
+        - Affichage Global qui appelle selon les arguments donnés les autres fonctions d'affichages (header, section) 
+
+
+    ## Main.c
+        - Main : Permet d'appeler le code ci-dessus en fonction des arguments reçus.
